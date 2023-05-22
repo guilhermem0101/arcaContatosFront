@@ -1,0 +1,22 @@
+<h1>Contatos</h1>
+
+
+
+<p-table >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nome</th>
+            <th>Número</th>
+            <th>Texto</th>
+            <!-- Adicione aqui outras colunas necessárias -->
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contato>
+        <tr>
+            <td>{{ contato.nomeC }}</td>
+            <td>{{ contato.numeroC }}</td>
+            <td>{{ contato.texto }}</td>
+            <!-- Adicione aqui outras colunas necessárias -->
+        </tr>
+    </ng-template>
+</p-table>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "arcacantatos": {
+      "hosting": {
+        "arca-contatos": [
+          "arcacantatos"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "arcacantatos"
+  }
+}
