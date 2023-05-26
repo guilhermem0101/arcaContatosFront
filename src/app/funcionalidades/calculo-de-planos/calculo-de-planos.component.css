@@ -1,0 +1,25 @@
+.tabela-funcoes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-funcoes th,
+.tabela-funcoes td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.tabela-funcoes th {
+    background-color: #f2f2f2;
+}
+
+.tabela-funcoes input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+.tabela-funcoes button {
+    padding: 5px 10px;
+}

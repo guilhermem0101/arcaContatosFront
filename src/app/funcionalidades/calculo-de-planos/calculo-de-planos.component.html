@@ -1,0 +1,22 @@
+<table class="tabela-funcoes">
+    <thead>
+        <tr>
+            <th>Titular</th>
+            <th>Dependente</th>
+            <th>QTD Dependentes</th>
+            <th>Total</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let funcao of funcoes">
+            <td>{{ funcao.b }}</td>
+            <td>{{ funcao.a }}</td>
+            <td><input type="number" [(ngModel)]="funcao.x"></td>
+            <td>{{ funcao.y }}
+                <br><button (click)="calcularFuncao(funcao)">Calcular</button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>

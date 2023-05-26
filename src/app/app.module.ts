@@ -25,6 +25,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { DividerModule } from 'primeng/divider';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { TabelaEspecialidadesComponent } from './funcionalidades/tabela-especialidades/tabela-especialidades.component';
+import { CalculoDePlanosComponent } from './funcionalidades/calculo-de-planos/calculo-de-planos.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     ContatosComponent,
     VendasComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    TabelaEspecialidadesComponent,
+    CalculoDePlanosComponent
   ],
   imports: [
     BrowserModule,
