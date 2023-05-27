@@ -23,3 +23,40 @@
 .tabela-funcoes button {
     padding: 5px 10px;
 }
+
+table{
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+button{
+    padding-right: 5px;
+    padding-left: 5px;
+
+}
+
+.tabela-especialidades {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-especialidades th,
+.tabela-especialidades td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.tabela-especialidades th {
+    background-color: #f2f2f2;
+}
+
+.tabela-especialidades tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabela-especialidades input[type="text"] {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+

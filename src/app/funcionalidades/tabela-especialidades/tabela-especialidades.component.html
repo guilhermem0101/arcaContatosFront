@@ -1,18 +1,17 @@
-<input type="text" [(ngModel)]="filtroEspecialidade" placeholder="Filtrar por especialidade">
-
+<br>
 <table class="tabela-especialidades">
     <thead>
         <tr>
             <th>Especialidade</th>
-            <th>sem Arca Saúde</th>
-            <th>com Arca Saúde</th>
+            <th>Sem Arca Saúde</th>
+            <th class="colored">Com Arca Saúde</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let especialidade of especialidades ">
             <td>{{ especialidade.especialidade }}</td>
             <td>{{ especialidade.semArcaSaude }}</td>
-            <td>{{ especialidade.comArcaSaude }}</td>
+            <td class="colored">{{ especialidade.comArcaSaude }}</td>
         </tr>
     </tbody>
 </table>

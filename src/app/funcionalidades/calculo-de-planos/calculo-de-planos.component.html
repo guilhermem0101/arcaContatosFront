@@ -1,6 +1,11 @@
+
+
+
+
 <table class="tabela-funcoes">
     <thead>
         <tr>
+            <th>Planos</th>
             <th>Titular</th>
             <th>Dependente</th>
             <th>QTD Dependentes</th>
@@ -10,13 +15,21 @@
     </thead>
     <tbody>
         <tr *ngFor="let funcao of funcoes">
-            <td>{{ funcao.b }}</td>
-            <td>{{ funcao.a }}</td>
-            <td><input type="number" [(ngModel)]="funcao.x"></td>
-            <td>{{ funcao.y }}
+            <td>{{funcao.plano}}</td>
+            <td>{{ funcao.b | currency:'BRL'}}</td>
+            <td>{{ funcao.a | currency:'BRL'}}</td>
+            <td><input type="number" min="0" [(ngModel)]="funcao.x"></td>
+            <td>{{ funcao.y | currency:'BRL'}}
                 <br><button (click)="calcularFuncao(funcao)">Calcular</button>
             </td>
             
         </tr>
     </tbody>
 </table>
+
+<br>
+
+
+
+
+

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 interface FuncaoLinear {
+  plano: string;
   a: number;
   b: number;
   x: number;
@@ -13,29 +14,19 @@ interface FuncaoLinear {
 export class CalculoDePlanosComponent {
 
   funcoes: FuncaoLinear[] = [
-    { a: 19.90, b: 27.90, x: 0, y: 0 },
-    { a: 58.00, b: 80, x: 0, y: 0 },
-    { a: 119.90, b: 150.90, x: 0, y: 0 },
-    { a: 214.99, b: 240.99, x: 0, y: 0 }];
-
-  calcularFuncoes(): void {
-    this.funcoes = [
-      { a: 2, b: 3, x: 1, y: 0 },
-      { a: -1, b: 5, x: 3, y: 0 },
-      { a: 4, b: 0, x: -2, y: 0 },
-      { a: 0, b: 2, x: 5, y: 0 }
-    ];
-
-    this.funcoes.forEach(funcao => {
-      funcao.y = funcao.a * funcao.x + funcao.b;
-    });
-
-    
-  }
+    { plano: 'Mensal', a: 19.90, b: 27.90, x: 0, y: 0 },
+    { plano: 'Trimestral', a: 58.00, b: 80, x: 0, y: 0 },
+    { plano: 'Semestral', a: 119.90, b: 150.90, x: 0, y: 0 },
+    { plano: 'Anual', a: 214.99, b: 240.99, x: 0, y: 0 }];
 
 
   calcularFuncao(funcao: FuncaoLinear): void {
     funcao.y = funcao.a * funcao.x + funcao.b;
   }
+
+
+ 
+
+  
 
 }

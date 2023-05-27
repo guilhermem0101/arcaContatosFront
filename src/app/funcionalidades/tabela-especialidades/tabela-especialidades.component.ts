@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class TabelaEspecialidadesComponent {
 
 
-   especialidades: any[] = [
+  especialidades: any[] = [
     {
       especialidade: 'Especialista - Clínica Popular',
       semArcaSaude: 'a partir de R$ 150,00',

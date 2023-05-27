@@ -27,7 +27,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TabelaEspecialidadesComponent } from './funcionalidades/tabela-especialidades/tabela-especialidades.component';
 import { CalculoDePlanosComponent } from './funcionalidades/calculo-de-planos/calculo-de-planos.component';
-
+import { AccordionModule } from 'primeng/accordion';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { CalculoDePlanosComponent } from './funcionalidades/calculo-de-planos/ca
     LoginComponent,
     CadastroComponent,
     TabelaEspecialidadesComponent,
-    CalculoDePlanosComponent
+    CalculoDePlanosComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +53,14 @@ import { CalculoDePlanosComponent } from './funcionalidades/calculo-de-planos/ca
     FormsModule,
     DividerModule,
     CheckboxModule,
-    RadioButtonModule,    
+    RadioButtonModule, 
+    AccordionModule,   
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    NgbModule,
     
 
   ],
