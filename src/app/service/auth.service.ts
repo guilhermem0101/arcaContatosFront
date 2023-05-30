@@ -1,10 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Usuario } from '../model/usuario';
-
-import { NgZone } from '@angular/core';
-
+import { Injectable, NgZone } from '@angular/core';
+import { User } from '../model/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -15,7 +10,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioService {
+export class AuthService {
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -115,12 +110,11 @@ export class UsuarioService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
-    const userData: Usuario = {
+    const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,      
-      emailVerified: user.emailVerified,      
-     
+      emailVerified: user.emailVerified,
     };
     return userRef.set(userData, {
       merge: true,
