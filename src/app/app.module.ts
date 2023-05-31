@@ -11,7 +11,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
  
@@ -94,7 +94,8 @@ import { ContatosEditComponent } from './contatos/contatos-edit/contatos-edit.co
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    NgbModule,
+    NgbModule, 
+    ReactiveFormsModule
     
 
   ],

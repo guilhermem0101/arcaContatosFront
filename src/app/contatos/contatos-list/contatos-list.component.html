@@ -1,1 +1,47 @@
-<p>contatos-list works!</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Lista de Contatos</h2>
+    <a routerLink="/add-contato" class="btn btn-success" *ngIf="hideWhenNoStudent">
+        Adicionar contato
+    </a>
+</div>
+<div class="pricing-header mx-auto">
+    <div class="no-data text-center" *ngIf="preLoader">
+        <img src="assets/preloader.gif" class="preloader-icon" alt="No student" />
+    </div>
+    <div class="no-data text-center" *ngIf="noData">
+        <img src="assets/no-student.svg" class="nodata-msg" alt="No student" />
+        <p class="nodata-msg">No student added yet!</p>
+        <a routerLink="/register-student" class="btn btn-success"> Add Student </a>
+    </div>
+    <div class="table-responsive" *ngIf="hideWhenNoStudent">
+        <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+            <thead>
+                <tr>
+                    
+                    <th scope="col">Numero</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Atendido</th>
+                    <th class="text-center" scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="
+            let contato of contato
+              ;
+            let i = index
+          ">
+                    
+                    <td>{{ contato.numeroC }} </td>
+                    <td>{{ contato.nomeC }}</td>
+                    <td>{{ contato.atendido }}</td>
+                    <td class="text-center action-block">
+                        <span class="mr-2 btn btn-outline-primary btn-sm"
+                            routerLink="/edit-contato/{{ contato.$key }}">Editar</span>
+                        <span class="btn btn-outline-danger btn-sm" (click)="deleteStudent(contato)">Deletar</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

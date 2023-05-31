@@ -1,1 +1,54 @@
-<p>contatos-add works!</p>
+<form [formGroup]="contatoForm" (ngSubmit)="submitStudentData()" novalidate>
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label>Numero</label>
+                    <input type="text" formControlName="numeroC" class="form-control" required />
+                    <!-- errors-->
+                    <p  class="error">
+                        <sup>*</sup>Insira o Numero
+                    </p>
+
+                </div>
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-md-12 mb-3">
+                    <label>Nome</label>
+                    <input type="text" formControlName="nomeC" class="form-control"  />
+                    <!-- errors-->
+                   
+                </div>
+            </div>
+          
+            <div class="form-group text-right">
+                <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">
+                    Limpar
+                </button>
+                
+                <button type="submit" class="btn btn-success" [disabled]="!contatoForm.valid">
+                    Adicionar 
+                </button>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</form>
+
+                <textarea [(ngModel)]="texto"></textarea>
+                <button (click)="processarTexto()">Processar</button>
+                
+                <ul>
+                    <li *ngFor="let sequencia of sequencias">{{ sequencia }}</li>
+                </ul>

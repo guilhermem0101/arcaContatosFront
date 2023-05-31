@@ -11,6 +11,9 @@ import { DashboardComponent } from './auth/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { AuthGuard } from '..//guard/auth.guard';
+import { ContatosAddComponent } from './contatos/contatos-add/contatos-add.component';
+import { ContatosListComponent } from './contatos/contatos-list/contatos-list.component';
+import { ContatosEditComponent } from './contatos/contatos-edit/contatos-edit.component';
 const routes: Routes = [
   { path: 'usuarios', component: UsuarioComponent },
   { path: 'vendas', component: VendasComponent, canActivate: [AuthGuard] },   
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'add-contato', component: ContatosAddComponent, canActivate: [AuthGuard] },
+  { path: 'list-contato', component: ContatosListComponent, canActivate: [AuthGuard] },
+  { path: 'edit-contato', component: ContatosEditComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

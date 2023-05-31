@@ -1,7 +1,7 @@
 import { Usuario } from './usuario';
 
 export interface Contatos {
-    id: number;
+    $key:string;
     nomeC?: string;
     numeroC: string;
     comentarios?: string;
