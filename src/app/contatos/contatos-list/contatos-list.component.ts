@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Contatos } from 'src/app/model/contatos';
 import { ContatosService } from 'src/app/service/contatos.service';
@@ -25,8 +26,10 @@ export class ContatosListComponent implements OnInit {
     s.snapshotChanges().subscribe(data => {
       this.contato = [];
       data.forEach(item => {
-        let a = item.payload.toJSON();
-        // a['$key'] = item.key;
+        let a:any = item.payload.toJSON();
+        a['$key'] = item.key;
+
+
         this.contato.push(a as Contatos);
       })
     })
@@ -48,5 +51,11 @@ export class ContatosListComponent implements OnInit {
       this.crudApi.DeleteContato(contato.$key)
       
     }
+  }
+
+  toggleAtendido(contato: Contatos){
+    contato.atendido = !contato.atendido;
+    this.crudApi.UpdateContato(contato)
+
   }
 }

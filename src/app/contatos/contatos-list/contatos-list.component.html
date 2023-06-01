@@ -6,12 +6,12 @@
 </div>
 <div class="pricing-header mx-auto">
     <div class="no-data text-center" *ngIf="preLoader">
-        <img src="assets/preloader.gif" class="preloader-icon" alt="No student" />
+        
     </div>
     <div class="no-data text-center" *ngIf="noData">
-        <img src="assets/no-student.svg" class="nodata-msg" alt="No student" />
-        <p class="nodata-msg">No student added yet!</p>
-        <a routerLink="/register-student" class="btn btn-success"> Add Student </a>
+        <!-- <img src="assets/no-student.svg" class="nodata-msg" alt="No student" />
+        <p class="nodata-msg">No student added yet!</p> -->
+        <a routerLink="/register-student" class="btn btn-success"> Add Contato </a>
     </div>
     <div class="table-responsive" *ngIf="hideWhenNoStudent">
         <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
@@ -25,15 +25,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="
-            let contato of contato
-              ;
-            let i = index
-          ">
+                <tr *ngFor="let contato of contato; let i = index ">
                     
                     <td>{{ contato.numeroC }} </td>
                     <td>{{ contato.nomeC }}</td>
-                    <td>{{ contato.atendido }}</td>
+                    <td><button class="btn btn-sm" [ngClass]="{'btn-success': contato.atendido, 'btn-danger': !contato.atendido}"
+                        (click)="toggleAtendido(contato)">
+                        {{ contato.atendido ? 'SIM' : 'NÃO' }}
+                    </button></td>
                     <td class="text-center action-block">
                         <span class="mr-2 btn btn-outline-primary btn-sm"
                             routerLink="/edit-contato/{{ contato.$key }}">Editar</span>

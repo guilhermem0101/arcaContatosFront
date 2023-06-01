@@ -35,6 +35,7 @@ export class ContatosService {
         this.contatosRef.push({
           nomeC: contato.nomeC ? contato.nomeC : null,
           numeroC: contato.numeroC,
+          dataHora: new Date(),
           comentarios: contato.comentarios ? contato.comentarios : null,
           atendido: contato.atendido ? contato.atendido : null,
           usuario: userId
@@ -43,7 +44,7 @@ export class ContatosService {
     });
   }
 
-
+ // Criar lista Contato
   AddContatolist(sequencias: string[]) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -51,6 +52,7 @@ export class ContatosService {
 
         sequencias.forEach(contato => {
           this.contatosRef.push({
+            dataHora: new Date(),
             numeroC: contato,
             atendido: false,
             usuario: userId
@@ -79,16 +81,19 @@ export class ContatosService {
 
   // Atualizar Objeto de Contato
   UpdateContato(contato: Contatos) {
+
+    this.contatoRef = this.db.object(this.id + '/contatos-list/' + contato.$key);
+
     this.contatoRef.update({
-      nomeC: contato.nomeC,      
-      atendido: contato.atendido,
+      nomeC: contato.nomeC ? contato.nomeC : null,    
+      atendido: contato.atendido,      
       numeroC: contato.numeroC,
     });
   }
 
   // Excluir Objeto de Contato
-  DeleteContato(id: string) {
-    this.contatoRef = this.db.object('contatos-list/' + id);
+  DeleteContato(idc: string) {
+    this.contatoRef = this.db.object(this.id + '/contatos-list/' + idc);
     this.contatoRef.remove();
   }
 
