@@ -12,11 +12,19 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class ContatosService {
   contatosRef: AngularFireList<any>;
   contatoRef: AngularFireObject<any>;
-
+  id:any
   constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) { 
-    this.contatosRef = this.db.list('contatos-list');
-    this.contatoRef = this.db.object('contatos-list/{id}');
+
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.id = user.uid;        
+      }
+    });
+
+    this.contatosRef = this.db.list(`${this.id}/contatos-list`);
+    this.contatoRef = this.db.object(`${this.id}/contatos-list/{id}`);
   }
+  
 
   // Criar Contato
   AddContato(contato: Contatos) {
@@ -44,6 +52,7 @@ export class ContatosService {
         sequencias.forEach(contato => {
           this.contatosRef.push({
             numeroC: contato,
+            atendido: false,
             usuario: userId
           });
         });
@@ -63,7 +72,8 @@ export class ContatosService {
 
   // Obter Lista de Contatos
   GetContatosList() {
-    this.contatosRef = this.db.list('contatos-list');
+    this.contatosRef = this.db.list(this.id+'/contatos-list');
+    
     return this.contatosRef;
   }
 
@@ -82,4 +92,4 @@ export class ContatosService {
     this.contatoRef.remove();
   }
 
-}
+ }

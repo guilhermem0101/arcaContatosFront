@@ -15,10 +15,10 @@ import { ContatosAddComponent } from './contatos/contatos-add/contatos-add.compo
 import { ContatosListComponent } from './contatos/contatos-list/contatos-list.component';
 import { ContatosEditComponent } from './contatos/contatos-edit/contatos-edit.component';
 const routes: Routes = [
-  { path: 'usuarios', component: UsuarioComponent },
+  { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthGuard] },
   { path: 'vendas', component: VendasComponent, canActivate: [AuthGuard] },   
-  { path: 'tabela-precos', component: TabelaEspecialidadesComponent, canActivate: [AuthGuard] },
-  { path: 'calculo-precos', component: CalculoDePlanosComponent, canActivate: [AuthGuard] },
+  { path: 'tabela-precos', component: TabelaEspecialidadesComponent},
+  { path: 'calculo-precos', component: CalculoDePlanosComponent},
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'register-user', component: SignUpComponent },

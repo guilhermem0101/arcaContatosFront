@@ -12,7 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CadastroComponent } from './cadastro/cadastro.component';
+
 
  
 import { FirestoreModule, provideFirestore,getFirestore } from '@angular/fire/firestore';
@@ -54,8 +54,7 @@ import { ContatosEditComponent } from './contatos/contatos-edit/contatos-edit.co
   declarations: [
     AppComponent,
     UsuarioComponent,
-    VendasComponent,
-    CadastroComponent,
+    VendasComponent,    
     TabelaEspecialidadesComponent,
     CalculoDePlanosComponent,
     SidebarComponent,

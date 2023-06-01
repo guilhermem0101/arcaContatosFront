@@ -5,7 +5,7 @@ export interface Contatos {
     nomeC?: string;
     numeroC: string;
     comentarios?: string;
-    ultimaLigacao?: Date;
+    dataHora?: Date;
     qtdLigacao: number;
     venda?: boolean;
     atendido?: boolean;
