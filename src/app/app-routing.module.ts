@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'add-contato', component: ContatosAddComponent, canActivate: [AuthGuard] },
   { path: 'list-contato', component: ContatosListComponent, canActivate: [AuthGuard] },
-  { path: 'edit-contato', component: ContatosEditComponent, canActivate: [AuthGuard] },
+  { path: 'edit-contato/:id', component: ContatosEditComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -56,8 +56,8 @@ export class ContatosAddComponent implements OnInit {
     // Limpa a lista de sequências antes de processar o texto novamente
     this.sequencias = [];
 
-    // Expressão regular para selecionar sequências numéricas com mais de 3 algarismos
-    const regex = /\d{4,}/g;
+    // Expressão regular para selecionar sequências numéricas com mais de 5 algarismos
+    const regex = /\d{6,}/g;
 
     // Encontra todas as sequências numéricas no texto
     const matches = this.texto.match(regex);

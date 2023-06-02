@@ -17,22 +17,25 @@
         <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
             <thead>
                 <tr>
-                    
+                    <th></th>
                     <th scope="col">Numero</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Atendido</th>
+                    <th>Data</th>
                     <th class="text-center" scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let contato of contato; let i = index ">
-                    
+                    <td>{{i+1}}</td>
                     <td>{{ contato.numeroC }} </td>
                     <td>{{ contato.nomeC }}</td>
                     <td><button class="btn btn-sm" [ngClass]="{'btn-success': contato.atendido, 'btn-danger': !contato.atendido}"
                         (click)="toggleAtendido(contato)">
                         {{ contato.atendido ? 'SIM' : 'NÃO' }}
                     </button></td>
+                    <td>{{ contato.dataHora | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+
                     <td class="text-center action-block">
                         <span class="mr-2 btn btn-outline-primary btn-sm"
                             routerLink="/edit-contato/{{ contato.$key }}">Editar</span>

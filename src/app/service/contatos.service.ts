@@ -31,13 +31,13 @@ export class ContatosService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         const userId = user.uid;
-
+        let c = new Date()
         this.contatosRef.push({
           nomeC: contato.nomeC ? contato.nomeC : null,
-          numeroC: contato.numeroC,
-          dataHora: new Date(),
+          numeroC: contato.numeroC,          
           comentarios: contato.comentarios ? contato.comentarios : null,
           atendido: contato.atendido ? contato.atendido : null,
+          dataHora: c,
           usuario: userId
         });
       }
@@ -51,10 +51,12 @@ export class ContatosService {
         const userId = user.uid;
 
         sequencias.forEach(contato => {
+          let c= new Date()
           this.contatosRef.push({
-            dataHora: new Date(),
+            
             numeroC: contato,
             atendido: false,
+            dataHora: c,
             usuario: userId
           });
         });
@@ -88,6 +90,7 @@ export class ContatosService {
       nomeC: contato.nomeC ? contato.nomeC : null,    
       atendido: contato.atendido,      
       numeroC: contato.numeroC,
+      dataHora: new Date(),
     });
   }
 
