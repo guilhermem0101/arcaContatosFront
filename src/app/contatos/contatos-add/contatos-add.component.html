@@ -3,24 +3,25 @@
         <div class="col-lg-5 col-md-12 col-sm-12">
             <div class="row">
                 <div class="col-md-12 mb-3">
+
+                    <div class="col-md-12 mb-3">
+                        <label>Nome</label>
+                        <input type="text" formControlName="nomeC" class="form-control" />
+                        <!-- errors-->
+                    
+                    </div>
                     <label>Numero</label>
                     <input type="text" formControlName="numeroC" class="form-control" required />
                     <!-- errors-->
                     <p  class="error">
-                        <sup>*</sup>Insira o Numero
+                        <sup>*</sup>Insira um Numero
                     </p>
 
                 </div>
                 
             </div>
             <div class="row">
-                
-                <div class="col-md-12 mb-3">
-                    <label>Nome</label>
-                    <input type="text" formControlName="nomeC" class="form-control"  />
-                    <!-- errors-->
-                   
-                </div>
+
             </div>
           
             <div class="form-group text-right">
@@ -46,8 +47,9 @@
     </div>
 </form>
 
-                <textarea [(ngModel)]="texto"></textarea>
-                <button (click)="processarTexto()">Processar</button>
+                <textarea [(ngModel)]="texto" placeholder="Copie e cole os números da BeBee aqui para criar uma lista automatica de contatos!"></textarea>
+
+                <button (click)="processarTexto()" class="btn btn-warning">Processar</button>
                 
                 <ul>
                     <li *ngFor="let sequencia of sequencias">{{ sequencia }}</li>

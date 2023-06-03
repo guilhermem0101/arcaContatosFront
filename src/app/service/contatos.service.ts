@@ -89,8 +89,20 @@ export class ContatosService {
     this.contatoRef.update({
       nomeC: contato.nomeC ? contato.nomeC : null,    
       atendido: contato.atendido,      
-      numeroC: contato.numeroC,
+      
       dataHora: new Date(),
+    });
+  }
+
+  UpdateContato2(contato: Contatos, idc:string) {
+
+    this.contatoRef = this.db.object(this.id + '/contatos-list/' + idc);
+
+    this.contatoRef.update({
+      nomeC: contato.nomeC ? contato.nomeC : null,
+           
+
+      
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContatosService } from 'src/app/service/contatos.service';
 
@@ -10,6 +10,8 @@ import { ContatosService } from 'src/app/service/contatos.service';
 })
 export class ContatosEditComponent implements OnInit {
   contatoForm!: FormGroup;
+  idc!:any
+
   constructor(
     private crudApi: ContatosService,
 
@@ -18,14 +20,24 @@ export class ContatosEditComponent implements OnInit {
     
   ) { }
   ngOnInit() {
+
+
+    this.contatoForm = new FormGroup({
+      nomeC: new FormControl()
+     
+    });
     
-    const id = this.actRoute.snapshot.paramMap.get('id');
-    // this.crudApi
-    //   .GetContato(id)
-    //   .valueChanges()
-    //   .subscribe((data) => {
-    //     this.editForm.setValue(data);
-    //   });
+     this.idc = this.actRoute.snapshot.paramMap.get('id');
+
+    if (this.idc) {
+      this.crudApi
+        .GetContato(this.idc)
+        .valueChanges()
+        .subscribe((data) => {
+          this.contatoForm.setValue(data);
+        });
+    }
+
   }
   get nomeC() {
     return this.contatoForm.get('nomeC');
@@ -39,7 +51,7 @@ export class ContatosEditComponent implements OnInit {
     this.router.navigate(['list-contato']);
   }
   updateForm() {
-    this.crudApi.UpdateContato(this.contatoForm.value);
+    this.crudApi.UpdateContato2(this.contatoForm.value, this.idc) ;
     
     this.router.navigate(['list-contato']);
   }

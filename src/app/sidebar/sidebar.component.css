@@ -1,33 +1,29 @@
-.sidebar {
-    width: 200px;
-    background-color: #f0f0f0;
-    padding: 20px;
+.top-menu {
+    background-color: black;
+    padding: 8px;
 }
 
-.sidebar-menu li {
-    margin-bottom: 10px;
-}
-
-.sidebar-menu a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-}
-
-.sidebar-menu a.active {
-    font-weight: bold;
-}
-
-
-
-
-.sidebar-menu {
+.top-menu-list {
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 .menu-item {
     display: inline-block;
     margin-right: 10px;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
+    padding: 6px;
+}
+
+.menu-item a:hover {
+    background-color: gray;
+}
+
+.menu-item a.active {
+    font-weight: bold;
 }
