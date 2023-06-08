@@ -31,13 +31,14 @@ export class ContatosService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         const userId = user.uid;
-        let c = new Date()
+        
         this.contatosRef.push({
           nomeC: contato.nomeC ? contato.nomeC : null,
           numeroC: contato.numeroC,          
           comentarios: contato.comentarios ? contato.comentarios : null,
           atendido: contato.atendido ? contato.atendido : null,
-          dataHora: c,
+          dataHora: contato.dataHora.toISOString()
+,
           usuario: userId
         });
       }
@@ -56,7 +57,7 @@ export class ContatosService {
             
             numeroC: contato,
             atendido: false,
-            dataHora: c,
+            dataHora: c.toISOString(),
             usuario: userId
           });
         });
@@ -70,7 +71,7 @@ export class ContatosService {
   
   // Obter Objeto de Contato Individual
   GetContato(id: string) {
-    this.contatoRef = this.db.object('contatos-list/' + id);
+    this.contatoRef = this.db.object(this.id +'/contatos-list/' + id);
     return this.contatoRef;
   }
 

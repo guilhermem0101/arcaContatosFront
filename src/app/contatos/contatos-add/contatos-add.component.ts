@@ -28,7 +28,8 @@ export class ContatosAddComponent implements OnInit {
   studenForm() {
     this.contatoForm = this.fb.group({
       numeroC: ['', [Validators.required, Validators.minLength(10)]],
-      nomeC: [''],   
+      nomeC: [''],
+      dataHora: new Date()   
      
       
     });
@@ -40,6 +41,8 @@ export class ContatosAddComponent implements OnInit {
   get numeroC() {
     return this.contatoForm.get('numeroC');
   }
+
+
   ResetForm() {
     this.contatoForm.reset();
   }

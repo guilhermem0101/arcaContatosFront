@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contatos } from 'src/app/model/contatos';
 import { ContatosService } from 'src/app/service/contatos.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-contatos-list',
@@ -9,11 +10,13 @@ import { ContatosService } from 'src/app/service/contatos.service';
   styleUrls: ['./contatos-list.component.css']
 })
 export class ContatosListComponent implements OnInit {
+
   p: number = 1;
   contato!: Contatos[];
   hideWhenNoStudent: boolean = false;
   noData: boolean = false;
   preLoader: boolean = true;
+  currentDate!: any;
 
   constructor(
     public crudApi: ContatosService,
@@ -21,6 +24,8 @@ export class ContatosListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.currentDate = new Date().toISOString();
+
     this.dataState();
     let s = this.crudApi.GetContatosList();
     s.snapshotChanges().subscribe(data => {
@@ -58,4 +63,7 @@ export class ContatosListComponent implements OnInit {
     this.crudApi.UpdateContato(contato)
 
   }
+
+
+  
 }
