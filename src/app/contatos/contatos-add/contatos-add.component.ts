@@ -68,16 +68,23 @@ export class ContatosAddComponent implements OnInit {
     // Remove duplicatas das sequências encontradas
     const sequenciasUnicas = Array.from(new Set(matches));
 
+
+    // Remove os primeiros algarismos da sequência se ela começar com "55"
+    const sequenciasSemPrefixo55 = sequenciasUnicas.map(sequencia => {
+      if (sequencia.startsWith("55")) {
+        return sequencia.slice(2);
+      }
+      return sequencia;
+    });
+
+
     // Armazena as sequências únicas na lista
-    this.sequencias = sequenciasUnicas;
+    this.sequencias = sequenciasSemPrefixo55;
 
   
       
 
-    // this.sequencias.forEach(item => {
-    //   this.contato = { numeroC: item };
-    //   this.contatos.push(this.contato );
-    // });
+
 
     this.crudApi.AddContatolist(this.sequencias)
   }

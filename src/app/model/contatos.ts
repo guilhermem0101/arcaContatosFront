@@ -10,4 +10,5 @@ export interface Contatos {
     venda?: boolean;
     atendido?: boolean;
     usuario: Usuario;
+    dataRetorno?: Date;
 }

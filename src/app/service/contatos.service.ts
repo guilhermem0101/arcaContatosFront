@@ -37,8 +37,7 @@ export class ContatosService {
           numeroC: contato.numeroC,          
           comentarios: contato.comentarios ? contato.comentarios : null,
           atendido: contato.atendido ? contato.atendido : null,
-          dataHora: contato.dataHora.toISOString()
-,
+          dataHora: contato.dataHora.toISOString(),
           usuario: userId
         });
       }
@@ -91,7 +90,7 @@ export class ContatosService {
       nomeC: contato.nomeC ? contato.nomeC : null,    
       atendido: contato.atendido,      
       
-      dataHora: new Date(),
+      
     });
   }
 
